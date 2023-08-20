@@ -25,6 +25,24 @@ def genders(d):
     
     return f'the number of females are {females} and the number of males {males}'
 
+#https://www.tutorialspoint.com/How-to-get-formatted-date-and-time-in-Python#:~:text=To%20convert%20a%20datetime%20object,hh%3Amm%3Ass%20format.
+import datetime
+
+def add_emp():
+    username = input('Enter username: ')
+    gender = input('Enter gender: ')
+    salary = input('Enter salary: ')
+    dx = datetime.datetime.now().strftime('%Y%m%d')
+    
+    with open('Data.txt', 'r') as lines:
+        line_count = len(lines.readlines())+1
+    employee_id = f'emp00{line_count}'
+    new_line = f'{employee_id},{username},{dx},{gender},{salary}'
+    with open('Data.txt', 'a') as file:
+        file.write('\n'+new_line)
+    print("New employee has been added")
+
+add_emp()
 
 
 
@@ -54,16 +72,16 @@ def admin(d):
 
 
 
-i=0
-while i <5:
-    user=input('enter username')
-    pws=input('entered password')
-    if user.lower()=='admin'and pws.lower()=='admin123123': 
-      print('WELCOME ADMIN')
-      break
-    elif find_user(user,d) ==True and pws=="":
-        print('hi user')
-        break
-    else:
-        i+=1
-        print('wrong user name or pass') 
+# i=0
+# while i <5:
+#     user=input('enter username')
+#     pws=input('entered password')
+#     if user.lower()=='admin'and pws.lower()=='admin123123': 
+#       print('WELCOME ADMIN')
+#       break
+#     elif find_user(user,d) ==True and pws=="":
+#         print('hi user')
+#         break
+#     else:
+#         i+=1
+#         print('wrong user name or pass')
