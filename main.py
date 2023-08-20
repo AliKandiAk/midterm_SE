@@ -32,7 +32,7 @@ import datetime
 def add_emp():#2
     username = input('Enter username: ')
     while True:
-        gender = input('Enter gender (male/female): ').lower()
+        gender = input('Enter gender (male/female): ')
         if gender.lower() =='male' or gender.lower()=='female':
             break
         else:
@@ -84,20 +84,21 @@ def admin(d):
       print('5.Remove Employee')
       print('6.Raise Employees Salary')
       print('7.Exit')
-      x=int(input('enter a number:'))
-      if x==1:
-        print(genders(d))
+      x=input('enter a number:')
+      if x.isdigit():
+        if x==1:
+          print(genders(d))
       
-      elif x==2:
-        add_emp()
-      elif x==3:
-            display_data()
-      elif x==4:
-          pass
-      elif x==5:
-          del_emp()
-      elif x==7:
-          exit()  
+        elif x==2:
+          add_emp()
+        elif x==3:
+              display_data()
+        elif x==4:
+            pass
+        elif x==5:
+            del_emp()
+        elif x==7:
+            exit()  
       else:
           print('incorrect input')  
 
@@ -112,29 +113,29 @@ def user(d, user_name):
     while True:
         print('1. Check my Salary')
         print('2. Exit')
-        x = int(input('Enter a number: '))
-        
-        if x == 1:
+        x = input('Enter a number: ')
+        if x.isdigit():
+          if x == 1:
              get_salary(d, user_name)
-        elif x == 2:
-            exit()
+          elif x == 2:
+              exit()
         else:
             print("Incorrect input or number.")
-# i = 0
-# while i < 5:
-#     user_input = input('Enter username: ')
-#     pws = input('Enter password: ')
-#     if user_input.lower() == 'admin' and pws.lower() == 'admin123123':
-#         print('WELCOME ADMIN')
-#         admin(d)
-#         break
-#     elif find_user(user_input, d) and pws == "":
-#         print('Hi user')
-#         user(d, user_input)
-#         break
-#     else:
-#         i += 1
-#         print('Wrong username or password')
+i = 0
+while i < 5:
+    user_input = input('Enter username: ')
+    pws = input('Enter password: ')
+    if user_input.lower() == 'admin' and pws.lower() == 'admin123123':
+        print('WELCOME ADMIN')
+        admin(d)
+        break
+    elif find_user(user_input, d) and pws == "":
+        print('Hi user')
+        user(d, user_input)
+        break
+    else:
+        i += 1
+        print('Wrong username or password')
 
 
 
